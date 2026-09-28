@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casino Roulette – Spin the Wheel</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdRT2ZoIseaf3e9Qonvt6wj1D9EftfF2v9H8VVHgha5A&s=10" type="image/x-icon">
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT PANEL -->
+    <aside class="panel">
+      <h1>🎰 CASINO ROULETTE</h1>
+      <p class="subtitle">Add at least 26 unique items to spin</p>
+
+      <div class="input-row">
+        <input type="text" id="itemInput" placeholder="Enter item (letters, numbers…)" maxlength="40" autocomplete="off">
+        <button class="btn btn-gold" id="addBtn">Add</button>
+      </div>
+
+      <div class="count-badge">
+        <span>Items: <span class="num" id="countNum">0</span> / 26 min</span>
+        <span class="status need" id="countStatus">Need more</span>
+      </div>
+
+      <div class="list-wrap" id="itemList"></div>
+
+      <div class="actions">
+        <button class="btn btn-outline" id="clearBtn">Clear All</button>
+        <button class="btn btn-danger" id="removeLastBtn">Remove Last</button>
+      </div>
+      <button class="btn btn-gold" id="demoBtn" style="width:100%">Quick Fill – 26 Demo Items</button>
+
+      <p class="hint">
+        Tip: Press Enter to add. Duplicates are blocked.<br>
+        The ball spins on the outer track and drops into any random pocket – real casino style.
+      </p>
+    </aside>
+
+    <!-- WHEEL -->
+    <main class="wheel-area">
+      <div class="canvas-wrap">
+        <canvas id="rouletteCanvas" width="700" height="700"></canvas>
+      </div>
+      <div class="spin-controls">
+        <button class="btn-spin" id="spinBtn" disabled>SPIN</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Winner Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h2>🎉 WINNER!</h2>
+      <p class="winner-label">The ball landed on</p>
+      <div class="winner-name" id="winnerName">—</div>
+      <button class="btn btn-gold" id="closeModal">Play Again</button>
+    </div>
+  </div>
+
+  <canvas id="confettiCanvas"></canvas>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
